@@ -1,0 +1,20 @@
+@startuml Locadora
+actor Cliente
+actor Funcionario
+
+left to right direction
+rectangle "Locadora de Veículos" {
+  usecase "Locar Veículos" as UC1
+  usecase "Gerenciar Cliente" as UC2
+  usecase "Gerenciar Veículos" as UC3
+  usecase "Devolver Veículos" as UC4
+  
+}
+
+Cliente --> UC1
+UC1 <-- Funcionario
+UC2 <-- Funcionario
+UC3 <-- Funcionario
+UC4 <-- Funcionario
+Cliente --> UC4
+@enduml

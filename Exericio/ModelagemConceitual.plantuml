@@ -1,0 +1,38 @@
+@startuml
+entity "Autor" as Autor {
+  +AutorID: int
+  --
+  Nome: string
+  Nacionalidade: string
+}
+
+entity "Livro" as Livro {
+  +LivroID: int
+  --
+  Titulo: string
+  Genero: string
+  AnoPublicacao: int
+  AutorID: int
+}
+
+entity "Cliente" as Cliente {
+  +ClienteID: int
+  --
+  Nome: string
+  Email: string
+  Telefone: string
+}
+
+entity "Emprestimo" as Emprestimo {
+  +EmprestimoID: int
+  --
+  LivroID: int
+  ClienteID: int
+  DataEmprestimo: date
+  DataDevolucao: date
+}
+
+Autor ||--o{ Livro : "escreve"
+Livro ||--o{ Emprestimo : "é emprestado"
+Cliente ||--o{ Emprestimo : "realiza"
+@enduml

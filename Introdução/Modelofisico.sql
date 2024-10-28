@@ -1,0 +1,30 @@
+CREATE DATABASE Locadora;
+USE Locadora;
+
+CREATE TABLE Cliente (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Nome VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Veiculo (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Modelo VARCHAR(255) NOT NULL,
+    Placa VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE Funcionario (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Nome VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Locacao (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    DataInicio DATE NOT NULL,
+    DataFim DATE NOT NULL,
+    ClienteID INT,
+    VeiculoID INT,
+    FuncionarioID INT,
+    FOREIGN KEY (ClienteID) REFERENCES Cliente(ID),
+    FOREIGN KEY (VeiculoID) REFERENCES Veiculo(ID),
+    FOREIGN KEY (FuncionarioID) REFERENCES Funcionario(ID)
+);

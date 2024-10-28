@@ -1,0 +1,29 @@
+@startuml LocadoraER_Com_Funcionario_Conceitual
+
+entity "Cliente" as Cliente {
+  --
+  Nome: string
+}
+
+entity "Veículo" as Veiculo {
+  --
+  Modelo: string
+  Placa: string
+}
+
+entity "Locação" as Locacao {
+  --
+  DataInicio: date
+  DataFim: date
+}
+
+entity "Funcionario" as Funcionario {
+  --
+  Nome: string
+}
+
+Cliente --|{ Locacao : "faz"
+Veiculo --|{ Locacao : "está associado a"
+Funcionario --|{ Locacao : "gerencia"
+
+@enduml

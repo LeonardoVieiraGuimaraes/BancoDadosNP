@@ -1,0 +1,36 @@
+@startuml LocadoraER_Com_Funcionario_Logico
+
+entity "Cliente" as Cliente {
+  +ID: int <<PK>>
+  --
+  Nome: string
+}
+
+entity "Veículo" as Veiculo {
+  +ID: int <<PK>>
+  --
+  Modelo: string
+  Placa: string
+}
+
+entity "Locação" as Locacao {
+  +ID: int <<PK>>
+  --
+  DataInicio: date
+  DataFim: date
+  ClienteID: int <<FK>>
+  VeiculoID: int <<FK>>
+  FuncionarioID: int <<FK>>
+}
+
+entity "Funcionario" as Funcionario {
+  +ID: int <<PK>>
+  --
+  Nome: string
+}
+
+Cliente --|{ Locacao : "faz"
+Veiculo --|{ Locacao : "está associado a"
+Funcionario --|{ Locacao : "gerencia"
+
+@enduml
