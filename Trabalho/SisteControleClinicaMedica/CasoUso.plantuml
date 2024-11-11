@@ -1,0 +1,27 @@
+@startuml "Sistema de Controle de Clínica Médica"
+left to right direction
+
+actor "Paciente" as patient
+actor "Médico" as doctor
+actor "Recepcionista" as receptionist
+
+rectangle "Sistema de Controle de Clínica Médica" {
+    usecase "Cadastro de Pacientes" as UC1
+    usecase "Cadastro de Médicos" as UC2
+    usecase "Agendamento de Consultas" as UC3
+    usecase "Registro de Prontuários" as UC4
+    usecase "Relatório de Consultas" as UC5
+}
+
+patient --> UC1 : Registrar
+patient --> UC3 : Solicitar
+
+UC1 <-- receptionist : Gerenciar
+UC2 <-- receptionist : Gerenciar
+UC3 <-- receptionist : Confirmar
+
+UC4 <-- doctor : Registrar
+UC5 <-- doctor : Gerar
+
+@enduml
+

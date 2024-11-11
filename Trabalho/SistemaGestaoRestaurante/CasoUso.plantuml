@@ -1,0 +1,28 @@
+@startuml "Sistema de Gestão de Restaurante"
+left to right direction
+
+actor "Cliente" as client
+actor "Garçom" as waiter
+actor "Cozinheiro" as chef
+actor "Gerente" as manager
+
+rectangle "Sistema de Gestão de Restaurante" {
+    usecase "Cadastro de Clientes" as UC1
+    usecase "Cadastro de Pratos" as UC2
+    usecase "Registro de Pedidos" as UC3
+    usecase "Controle de Estoque" as UC4
+    usecase "Relatório de Consumo" as UC5
+}
+
+client --> UC1 : Registrar
+client --> UC3 : Realizar Pedido
+
+UC3 <-- waiter : Processar Pedido
+UC3 <-- chef : Preparar Prato
+
+UC2 <-- manager : Gerenciar
+UC4 <-- manager : Atualizar Estoque
+UC5 <-- manager : Gerar Relatório
+
+@enduml
+

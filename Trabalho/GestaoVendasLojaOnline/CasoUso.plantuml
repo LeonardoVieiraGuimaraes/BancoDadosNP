@@ -1,0 +1,26 @@
+@startuml "Gestão de Vendas em uma Loja Online"
+left to right direction
+
+actor "Cliente" as client
+actor "Vendedor" as seller
+actor "Administrador" as admin
+
+rectangle "Loja Online" {
+    usecase "Cadastro de Clientes" as UC1
+    usecase "Cadastro de Produtos" as UC2
+    usecase "Registro de Pedidos" as UC3
+    usecase "Relatório de Vendas" as UC4
+    usecase "Controle de Estoque" as UC5
+}
+
+client --> UC1 : Registrar
+client --> UC3 : Realizar Pedido
+
+UC2 <-- seller : Gerenciar
+UC3 <-- seller : Processar
+UC5 <-- seller : Atualizar
+
+UC4 <-- admin : Gerar
+UC5 <-- admin : Gerenciar
+
+@enduml

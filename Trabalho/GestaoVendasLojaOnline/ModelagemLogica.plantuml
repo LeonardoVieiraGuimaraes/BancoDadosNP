@@ -1,0 +1,39 @@
+@startuml Gestão de Vendas em uma Loja Online
+entity "Cliente" as cliente {
+    +id : INT
+    nome : VARCHAR
+    email : VARCHAR
+    telefone : VARCHAR
+    endereco : VARCHAR
+}
+
+entity "Categoria" as categoria {
+    +id : INT
+    nome : VARCHAR
+}
+
+entity "Produto" as produto {
+    +id : INT
+    nome : VARCHAR
+    descricao : VARCHAR
+    preco : FLOAT
+    quantidade_estoque : INT
+}
+
+entity "Pedido" as pedido {
+    +id : INT
+    data_pedido : DATE
+    status : VARCHAR
+}
+
+entity "Item_Pedido" as item_pedido {
+    +id : INT
+    quantidade : INT
+    preco_unitario : FLOAT
+}
+
+cliente ||--o{ pedido : faz
+pedido ||--o{ item_pedido : contem
+produto ||--o{ item_pedido : é
+categoria ||--o{ produto : inclui
+@enduml
