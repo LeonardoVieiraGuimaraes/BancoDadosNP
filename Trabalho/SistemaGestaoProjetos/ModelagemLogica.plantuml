@@ -1,0 +1,36 @@
+@startuml Sistema de Gestão de Projetos
+entity "Projeto" as projeto {
+    +id : INT
+    nome : VARCHAR
+    descricao : TEXT
+    data_inicio : DATE
+    data_fim : DATE
+    status : VARCHAR
+}
+
+entity "Tarefa" as tarefa {
+    +id : INT
+    nome : VARCHAR
+    descricao : TEXT
+    status : VARCHAR
+    data_inicio : DATE
+    data_fim : DATE
+}
+
+entity "Colaborador" as colaborador {
+    +id : INT
+    nome : VARCHAR
+    cargo : VARCHAR
+    email : VARCHAR
+}
+
+entity "Cliente" as cliente {
+    +id : INT
+    nome : VARCHAR
+    email : VARCHAR
+}
+
+projeto ||--o{ tarefa : tem
+tarefa ||--o{ colaborador : atribui
+projeto ||--o{ cliente : pertence
+@enduml

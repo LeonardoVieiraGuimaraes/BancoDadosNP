@@ -1,0 +1,26 @@
+@startuml "Sistema de Gerenciamento de Eventos"
+left to right direction
+
+actor "Participante" as participant
+actor "Organizador" as organizer
+actor "Palestrante" as speaker
+
+rectangle "Sistema de Gerenciamento de Eventos" {
+    usecase "Cadastro de Eventos" as UC1
+    usecase "Inscrição em Evento" as UC2
+    usecase "Cadastro de Palestrantes" as UC3
+    usecase "Emissão de Certificados" as UC4
+    usecase "Relatório de Participação" as UC5
+}
+
+participant --> UC2 : Inscrever-se
+participant --> UC4 : Solicitar
+
+UC1 <-- organizer : Gerenciar
+UC2 <-- organizer : Confirmar
+UC3 <-- organizer : Gerenciar
+UC5 <-- organizer : Gerar
+
+UC3 <-- speaker : Registrar
+
+@enduml

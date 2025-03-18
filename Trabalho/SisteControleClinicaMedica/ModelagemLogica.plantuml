@@ -1,0 +1,33 @@
+@startuml Sistema de Controle de Clínica Médica
+entity "Paciente" as paciente {
+    +id : INT
+    nome : VARCHAR
+    data_nascimento : DATE
+    endereco : VARCHAR
+    telefone : VARCHAR
+}
+
+entity "Medico" as medico {
+    +id : INT
+    nome : VARCHAR
+    especialidade : VARCHAR
+}
+
+entity "Consulta" as consulta {
+    +id : INT
+    data_consulta : DATE
+    status : VARCHAR
+    observacoes : TEXT
+}
+
+entity "Prontuario" as prontuario {
+    +id : INT
+    data_criacao : DATE
+    diagnostico : TEXT
+    receita : TEXT
+}
+
+paciente ||--o{ consulta : faz
+medico ||--o{ consulta : realiza
+consulta ||--o{ prontuario : gera
+@enduml

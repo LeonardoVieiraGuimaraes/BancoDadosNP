@@ -1,0 +1,37 @@
+@startuml Sistema de Gestão de Restaurante
+entity "Cliente" as cliente {
+    +id : INT
+    nome : VARCHAR
+    telefone : VARCHAR
+    endereco : VARCHAR
+}
+
+entity "Garcom" as garcom {
+    +id : INT
+    nome : VARCHAR
+}
+
+entity "Pedido" as pedido {
+    +id : INT
+    data_pedido : DATE
+    status : VARCHAR
+}
+
+entity "Prato" as prato {
+    +id : INT
+    nome : VARCHAR
+    descricao : VARCHAR
+    preco : FLOAT
+}
+
+entity "Item_Pedido" as item_pedido {
+    +id : INT
+    quantidade : INT
+    preco_unitario : FLOAT
+}
+
+cliente ||--o{ pedido : faz
+garcom ||--o{ pedido : recebe
+pedido ||--o{ item_pedido : contém
+prato ||--o{ item_pedido : inclui
+@enduml

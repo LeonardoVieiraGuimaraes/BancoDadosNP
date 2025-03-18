@@ -1,0 +1,36 @@
+@startuml Sistema de Gerenciamento de Eventos
+entity "Evento" as evento {
+    +id : INT
+    nome : VARCHAR
+    data : DATE
+    local : VARCHAR
+    descricao : TEXT
+}
+
+entity "Participante" as participante {
+    +id : INT
+    nome : VARCHAR
+    email : VARCHAR
+}
+
+entity "Palestrante" as palestrante {
+    +id : INT
+    nome : VARCHAR
+    especialidade : VARCHAR
+}
+
+entity "Inscricao" as inscricao {
+    +id : INT
+    data_inscricao : DATE
+}
+
+entity "Certificado" as certificado {
+    +id : INT
+    data_emissao : DATE
+}
+
+evento ||--o{ inscricao : possui
+participante ||--o{ inscricao : se inscreve
+evento ||--o{ palestrante : conta com
+participante ||--o{ certificado : recebe
+@enduml

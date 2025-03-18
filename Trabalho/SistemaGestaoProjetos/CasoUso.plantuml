@@ -1,0 +1,26 @@
+@startuml "Sistema de Gestão de Projetos"
+left to right direction
+
+actor "Cliente" as client
+actor "Colaborador" as collaborator
+actor "Gerente de Projeto" as projectManager
+
+rectangle "Sistema de Gestão de Projetos" {
+    usecase "Cadastro de Projetos" as UC1
+    usecase "Cadastro de Tarefas" as UC2
+    usecase "Atribuição de Tarefas" as UC3
+    usecase "Acompanhamento de Projetos" as UC4
+    usecase "Relatório de Progresso" as UC5
+}
+
+client --> UC1 : Solicitar Projeto
+
+UC1 <-- projectManager : Gerenciar
+UC2 <-- projectManager : Criar
+UC3 <-- projectManager : Atribuir
+UC5 <-- projectManager : Gerar Relatório
+
+UC3 <-- collaborator : Receber Tarefa
+UC4 <-- collaborator : Atualizar Status
+
+@enduml

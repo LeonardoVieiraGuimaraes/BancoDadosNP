@@ -1,0 +1,39 @@
+@startuml Sistema de Biblioteca Universitária
+entity "Usuario" as usuario {
+    +id : INT
+    nome : VARCHAR
+    tipo : VARCHAR
+    endereco : VARCHAR
+    telefone : VARCHAR
+}
+
+entity "Categoria" as categoria {
+    +id : INT
+    nome : VARCHAR
+}
+
+entity "Livro" as livro {
+    +id : INT
+    titulo : VARCHAR
+    autor : VARCHAR
+    ISBN : VARCHAR
+}
+
+entity "Emprestimo" as emprestimo {
+    +id : INT
+    data_emprestimo : DATE
+    data_devolucao : DATE
+    multa : FLOAT
+}
+
+entity "Reserva" as reserva {
+    +id : INT
+    data_reserva : DATE
+}
+
+usuario ||--o{ emprestimo : realiza
+livro ||--o{ emprestimo : emprestado
+categoria ||--o{ livro : categoriza
+usuario ||--o{ reserva : realiza
+livro ||--o{ reserva : reservado
+@enduml
