@@ -7,7 +7,7 @@ entity "Autor" as Autor {
 }
 
 entity "Livro" as Livro {
-  +LivroID: int
+  +LivroID: intiiiiiii909
   --
   Titulo: string
   Genero: string
